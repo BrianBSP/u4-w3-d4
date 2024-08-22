@@ -8,10 +8,11 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "evento")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Evento {
     @Id
     @GeneratedValue
-    private UUID id;
+    protected UUID id;
     private String titolo;
     private LocalDate dataEvento;
     private String descrizione;

@@ -24,6 +24,11 @@ public class Persona {
     @OneToMany(mappedBy = "persona")
     private List<Partecipazione> listaPartecipazioni;
 
+    @ManyToOne
+    @JoinColumn(name = "gara_id")
+    private GaraDiAtletica gara;
+
+
     // costruttori
     public Persona() {
     }
@@ -47,6 +52,14 @@ public class Persona {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public GaraDiAtletica getGara() {
+        return gara;
+    }
+
+    public void setGara(GaraDiAtletica gara) {
+        this.gara = gara;
     }
 
     public String getCognome() {
@@ -98,6 +111,8 @@ public class Persona {
                 ", email='" + email + '\'' +
                 ", dataNascita=" + dataNascita +
                 ", sesso=" + sesso +
+                ", listaPartecipazioni=" + listaPartecipazioni +
+                ", gara=" + gara +
                 '}';
     }
 }
