@@ -13,18 +13,19 @@ import java.util.List;
 @Entity
 @Table(name = "gare_atletica")
 public class GaraDiAtletica extends Evento {
-    @OneToMany(mappedBy = "persona")
+    @OneToMany(mappedBy = "gara")
     @Column(name = "set_atleti")
     private List<Persona> setAtleti;
-    @Column(name = "vincitore")
-    private Persona vincitore;
+
+    /*@Column(name = "vincitore")
+    private Persona vincitore;*/
 
     // costruttori
 
-    public GaraDiAtletica(String titolo, LocalDate dataEvento, String descrizione, TipoEvento tipoEvento, int numeroMassinoParteciapnti, List<Persona> setAtleti, Persona vincitore) {
+    public GaraDiAtletica(String titolo, LocalDate dataEvento, String descrizione, TipoEvento tipoEvento, int numeroMassinoParteciapnti, List<Persona> setAtleti) {
         super(titolo, dataEvento, descrizione, tipoEvento, numeroMassinoParteciapnti);
         this.setAtleti = setAtleti;
-        this.vincitore = vincitore;
+        //this.vincitore = vincitore;
     }
 
     public GaraDiAtletica() {
@@ -39,20 +40,20 @@ public class GaraDiAtletica extends Evento {
         this.setAtleti = setAtleti;
     }
 
-    public Persona getVincitore() {
+    /*public Persona getVincitore() {
         return vincitore;
     }
 
     public void setVincitore(Persona vincitore) {
         this.vincitore = vincitore;
-    }
+    }*/
 
     // toSting
     @Override
     public String toString() {
         return "GaraDiAtletica{" +
                 "setAtleti=" + setAtleti +
-                ", vincitore=" + vincitore +
+                //", vincitore=" + vincitore +
                 '}';
     }
 }
